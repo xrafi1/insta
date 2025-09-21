@@ -198,8 +198,17 @@
                 profileLink.href = `https://instagram.com/${username}`;
                 profileLink.target = '_blank';
                 profileLink.rel = 'noopener noreferrer';
-                profileLink.className = 'text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors';
+                profileLink.className = 'bg-gray-200 text-gray-900 hover:bg-white px-3 py-1 rounded-md text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white';
                 profileLink.textContent = 'View Profile';
+
+                // Add click listener for visual feedback
+                profileLink.addEventListener('click', (e) => {
+                    const button = e.target;
+                    button.classList.remove('bg-gray-200', 'text-gray-900', 'hover:bg-white');
+                    button.classList.add('bg-blue-600', 'text-white');
+                    button.textContent = 'Opened';
+                });
+
 
                 listItem.appendChild(usernameSpan);
                 listItem.appendChild(profileLink);
@@ -296,3 +305,5 @@
     </script>
 </body>
 </html>
+
+
